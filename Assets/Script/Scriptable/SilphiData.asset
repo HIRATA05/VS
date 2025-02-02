@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8ac395acac848498505dcfb638efbc, type: 3}
+  m_Name: SilphiData
+  m_EditorClassIdentifier: 
+  Name: "\u30B7\u30EB\u30D5\u30A3"
+  Hp: 100
+  Atk: 5
+  MoveSpeed: 3
+  JampPower: 6
+  JampSpeed: 0.05
+  KnockBackPower: 5
+  N_Skill:
+    Power: 1
+    isMotion: 0

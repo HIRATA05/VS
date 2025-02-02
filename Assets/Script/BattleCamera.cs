@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class BattleCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //プレイヤーと対戦相手をカメラに収める
+
+    //ゲームマネージャー
+    GameManager gameManager;
+
+    float camX = 0;
+
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        camX = gameManager.playerChara.transform.position.x;
+
+        transform.position = new Vector3(camX, transform.position.y, transform.position.z);
     }
 }
