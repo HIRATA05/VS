@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u30A4\u30B4\u30FC\u30ED\u30CA\u30AF"
   Hp: 100
-  Atk: 9
+  Atk: 14
   MoveSpeed: 1
   JampPower: 4
   JampSpeed: 0.05
-  KnockBackPower: 3
+  KnockBackPower: 2
   N_Skill:
     Power: 2
     isMotion: 0

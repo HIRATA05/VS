@@ -39,7 +39,7 @@ public class EnemyMove : MonoBehaviour
     EnemyState enemyState = EnemyState.Move;
 
     float StateMoveTime = 5;
-    float StateEscapeTime = 3;
+    float StateEscapeTime = 1.5f;
     float elapsedTime = 0;
 
     void Start()
@@ -85,18 +85,19 @@ public class EnemyMove : MonoBehaviour
                 animator.SetBool("Move", true);
 
                 //Debug.Log("elapsedTime " + elapsedTime);
+                //一定の近さの場合攻撃モーション発生
+                if (Vector3.Distance(gameManager.playerChara.transform.position, gameManager.enemyChara.transform.position) < AttackDistance)
+                {
+                    //他のステートに移行
+                    enemyState = EnemyState.Attack;
+                }
+
                 elapsedTime += Time.deltaTime;
                 if (StateMoveTime < elapsedTime)
                 {
                     elapsedTime = 0;
                     //他のステートに移行
                     enemyState = EnemyState.Escape;
-                }
-                //一定の近さの場合攻撃モーション発生
-                if (Vector3.Distance(gameManager.playerChara.transform.position, gameManager.enemyChara.transform.position) < AttackDistance)
-                {
-                    //他のステートに移行
-                    enemyState = EnemyState.Attack;
                 }
             }
             else if(enemyState == EnemyState.Attack)
@@ -109,6 +110,7 @@ public class EnemyMove : MonoBehaviour
 
                 //攻撃後Escapeに変化
                 enemyState = EnemyState.Escape;
+
             }
             else if (enemyState == EnemyState.Escape)
             {
@@ -141,7 +143,13 @@ public class EnemyMove : MonoBehaviour
                         animator.SetBool("IsJamp", true);
                         rb.AddForce(Vector3.up * charaData.JampPower, ForceMode.Impulse);
                     }
-                        
+                    //一定の近さの場合攻撃モーション発生
+                    if (Vector3.Distance(gameManager.playerChara.transform.position, gameManager.enemyChara.transform.position) < AttackDistance)
+                    {
+                        //他のステートに移行
+                        enemyState = EnemyState.Attack;
+                    }
+
                     //他のステートに移行
                     enemyState = EnemyState.Move;
                 }
